@@ -7135,7 +7135,7 @@ window.Track = (function () {
 
   /* ── Share modal ── */
   var presId    = "00000011";
-  var baseUrl   = "https://alexochoac.github.io/put-a-presentation-published/finished-presentations/" + presId + "/";
+  var baseUrl   = "https://put-a-presentation.wbtm.io/public/" + presId + "/";
   var overlay   = document.getElementById("fp-share-overlay");
   var shareBtns = [document.getElementById("fp-share-btn-hdr"), document.getElementById("fp-share-btn-ftr")];
   var nameIn    = document.getElementById("fp-share-name");
@@ -7205,6 +7205,29 @@ window.Track = (function () {
     prevBtn.disabled = true;
     arrowPrev.disabled = true;
   });
+})();
+</script>
+<div id="_pb-nav-bar" style="position:fixed;top:0;left:0;right:0;z-index:9999;background:rgba(0,0,0,0.72);backdrop-filter:blur(6px);display:flex;align-items:center;padding:0 16px;height:40px;font-family:sans-serif;font-size:13px;">
+  <a id="_pb-back-btn" href="#" style="color:#fff;text-decoration:none;opacity:0.85;display:flex;align-items:center;gap:6px;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.85">
+    <span style="font-size:16px;">&#8592;</span><span id="_pb-back-label">Back</span>
+  </a>
+</div>
+<script>
+(function () {
+  var btn   = document.getElementById("_pb-back-btn");
+  var label = document.getElementById("_pb-back-label");
+  var websiteUrl = "";
+  if (window.location.pathname.indexOf("/finished/") === 0) {
+    label.textContent = "Back to Dashboard";
+    btn.href = "/builder/";
+  } else if (websiteUrl) {
+    label.textContent = "Company Webpage";
+    btn.href = websiteUrl;
+    btn.target = "_blank";
+    btn.rel = "noopener noreferrer";
+  } else {
+    document.getElementById("_pb-nav-bar").style.display = "none";
+  }
 })();
 </script>
 </body>
